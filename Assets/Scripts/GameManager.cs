@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
             GameStart = true; //Debug用
             GameState = true;
 
-            //TODO: Randomize Bomb Generate;
-
         }
     }
 
