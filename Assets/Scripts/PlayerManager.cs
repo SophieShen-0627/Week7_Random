@@ -29,7 +29,8 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        PlayerControlManager.onPlayerJoined += AddPlayer;
+        if (GameManager.CurPlayerNum < 3)
+            PlayerControlManager.onPlayerJoined += AddPlayer;
     }
     private void OnDisable()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
@@ -16,32 +17,35 @@ public class PlayerController : MonoBehaviour
     public float RegDecelerateFactor = 0.05f;
     public float BombDecelerateFactor = 0.1f;
     float curDecFactor;
-    Rigidbody2D rb;
     Vector2 moveDir = Vector2.zero;
+    Rigidbody2D rb;
+
 
     public enum PlayerNum { P1, P2, P3, P4 };
     [Header("Spawn")]
     public PlayerNum CurNum = PlayerNum.P1;
 
-    [Header("Bomb")]
-    public bool ifHasBomb = false;
-    public float BombPassInterval = 0.5f;
-    float timer = 0;
-    [Header("Input")]
-    public int curInputType = 0;
-    // 0 - left keyboard
-    // 1 - right keyboard
-    // 2 - gamepad
 
-    // =================================Input System Related=================================== //
+    [Header("Bomb")]
+    public bool HasBomb = false;
+    public bool CanPassBomb = true;
+    bool contact = false;
+    public float BombPassInterval = 0.5f;
+
+    public GameObject Bomb;
+    float timer = 0;
+    GameObject curOther = null;
+
+    // ================================= Input System Related =================================== //
     InputActionAsset controls;
     InputActionMap playerInput;
     InputAction movement;
     private void Awake()
     {
         controls = GetComponent<PlayerInput>().actions;
-        playerInput = controls.FindActionMap("Player Input");
         rb = GetComponent<Rigidbody2D>();
+
+        playerInput = controls.FindActionMap("Player Input");
         curMoveForce = RegMoveForce;
         curMaxSpeed = RegMaxSpeed;
 
@@ -50,13 +54,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         PlayerNumUpdate();
-
     }
 
     // Update is called once per frame
     void Update()
     {
         StateChange();
+        if (GameManager.GameState)
+        {
+            BombPass();
+            ContactWithOthers();
+            BombReceiveCooldown();
+        }
     }
     private void FixedUpdate()
     {
@@ -89,7 +98,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 move = moveDir * curMoveForce;
         rb.AddForce(move, ForceMode2D.Impulse);
-        // Stop Input
+
+        // Velocity Adjustment
         if (moveDir.magnitude <= 0.01f)
         {
             if (Mathf.Abs(rb.velocity.x) > curDecFactor)
@@ -111,7 +121,6 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0);
             }
         }
-        // Input
         else
         {
             if (Mathf.Abs(rb.velocity.x) > curMaxSpeed)
@@ -128,7 +137,7 @@ public class PlayerController : MonoBehaviour
     }
     void StateChange()
     {
-        if (ifHasBomb)
+        if (HasBomb)
         {
             curMaxSpeed = BombMaxSpeed;
             curMoveForce = BombMoveForce;
@@ -141,6 +150,43 @@ public class PlayerController : MonoBehaviour
             curDecFactor = RegDecelerateFactor;
         }
     }
+    void BombPass()
+    {
+        if (HasBomb)
+        {
+            if (!Bomb.activeSelf)
+                Bomb.SetActive(true);
+        }
+        else
+        {
+            if (Bomb.activeSelf)
+                Bomb.SetActive(false);
+        }
+    }
+    void ContactWithOthers()
+    {
+        if (contact && HasBomb && curOther.GetComponent<PlayerController>().CanPassBomb)
+        {
+            curOther.GetComponent<PlayerController>().HasBomb = true;
+            HasBomb = false;
+            CanPassBomb = false;
+
+            // TODO: Global Counting Down Functions
+
+        }
+    }
+    void BombReceiveCooldown()
+    {
+        if (!CanPassBomb)
+        {
+            timer += Time.deltaTime;
+            if (timer >= BombPassInterval)
+            {
+                CanPassBomb = true;
+                timer = 0;
+            }
+        }
+    }
     private void OnEnable()
     {
         movement = playerInput.FindAction("Movement");
@@ -150,4 +196,76 @@ public class PlayerController : MonoBehaviour
     {
         playerInput.Disable();
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (curOther == null)
+            {
+                curOther = other.gameObject;
+            }
+            if (curOther != null && curOther == other.gameObject)
+            {
+                contact = true;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (curOther == null)
+            {
+                curOther = other.gameObject;
+            }
+            if (curOther != null && curOther == other.gameObject)
+            {
+                contact = true;
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            curOther = null;
+            contact = false;
+        }
+    }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         if (curOther == null)
+    //         {
+    //             curOther = other.gameObject;
+    //         }
+    //         if (curOther != null && curOther == other.gameObject)
+    //         {
+    //             contact = true;
+    //         }
+    //     }
+    // }
+    // private void OnCollisionStay(Collision other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         if (curOther == null)
+    //         {
+    //             curOther = other.gameObject;
+    //         }
+    //         if (curOther != null && curOther == other.gameObject)
+    //         {
+    //             contact = true;
+    //         }
+    //     }
+    // }
+    // private void OnCollisionExit2D(Collision2D other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         curOther = null;
+    //         contact = false;
+    //     }
+    // }
 }
