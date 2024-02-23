@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
@@ -20,8 +21,6 @@ public class PlayerController : MonoBehaviour
     public enum PlayerNum { P1, P2, P3, P4 };
     [Header("Spawn")]
     public PlayerNum CurNum = PlayerNum.P1;
-    public List<Transform> StartingPoints;
-
 
     [Header("Bomb")]
     public bool ifHasBomb = false;
@@ -32,6 +31,8 @@ public class PlayerController : MonoBehaviour
     InputActionAsset controls;
     InputActionMap playerInput;
     InputAction movement;
+    InputUser user;
+    Keyboard keyboard;
 
     private void Awake()
     {
@@ -41,26 +42,12 @@ public class PlayerController : MonoBehaviour
         curMoveForce = RegMoveForce;
         curMaxSpeed = RegMaxSpeed;
         curDecFactor = RegDecelerateFactor;
-        
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        // switch (GameManager.CurPlayerNum)
-        // {
-        //     case 1:
-        //         CurNum = PlayerNum.P2;
-        //         break;
-        //     case 2:
-        //         CurNum = PlayerNum.P3;
-        //         break;
-        //     case 3:
-        //         CurNum = PlayerNum.P4;
-        //         break;
-        //     default:
-        //         CurNum = PlayerNum.P1;
-        //         break;
-        // }
+        PlayerNumUpdate();
     }
 
     // Update is called once per frame
@@ -75,6 +62,25 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveDir = context.ReadValue<Vector2>();
+    }
+    void PlayerNumUpdate()
+    {
+        switch (GameManager.CurPlayerNum)
+        {
+            case 0:
+                CurNum = PlayerNum.P1;
+                break;
+            case 1:
+                CurNum = PlayerNum.P2;
+                break;
+            case 2:
+                CurNum = PlayerNum.P3;
+                break;
+            case 3:
+                CurNum = PlayerNum.P4;
+                break;
+
+        }
     }
     void Move()
     {

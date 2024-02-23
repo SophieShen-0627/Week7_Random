@@ -8,7 +8,10 @@ public class PlayerManager : MonoBehaviour
     public List<PlayerInput> PlayerInputs = new List<PlayerInput>();
     public List<Transform> StartingPoints;
 
-    public PlayerInputManager PlayerInputManager;
+    public PlayerInputManager PlayerControlManager;
+
+    public List<Color> PlayerColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +25,11 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        PlayerInputManager.onPlayerJoined += AddPlayer;
+        PlayerControlManager.onPlayerJoined += AddPlayer;
     }
     private void OnDisable()
     {
-        PlayerInputManager.onPlayerJoined -= AddPlayer;
-
+        PlayerControlManager.onPlayerJoined -= AddPlayer;
     }
     public void AddPlayer(PlayerInput playerInput)
     {
@@ -35,5 +37,8 @@ public class PlayerManager : MonoBehaviour
         Transform playerParent = playerInput.transform;
         playerParent.position = StartingPoints[PlayerInputs.Count - 1].position;
         GameManager.CurPlayerNum += 1;
+        playerInput.gameObject.GetComponent<SpriteRenderer>().color = PlayerColor[PlayerInputs.Count - 1];
+        Debug.Log("Generated");
     }
+    
 }

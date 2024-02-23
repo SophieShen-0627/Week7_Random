@@ -59,11 +59,13 @@ public class KeyboardSplitter : MonoBehaviour
         internal Keyboard device;
         internal KeyboardState state;
         bool isDirty = false;
+        double time = 0;
 
         public void AddDevice() => device = InputSystem.AddDevice<Keyboard>(name);
         public void RemoveDevice() => InputSystem.RemoveDevice(device);
-        public void Set(Key key, bool pressed)
+        public void Set(Key key, bool pressed, double time)
         {
+            this.time = time;
             state.Set(key, pressed);
             isDirty = true;
         }
@@ -72,7 +74,7 @@ public class KeyboardSplitter : MonoBehaviour
         {
             if (ignoreDirty || isDirty)
             {
-                InputSystem.QueueStateEvent(device, state, Time.time + 1f);
+                InputSystem.QueueStateEvent(device, state, time);
                 isDirty = false;
                 return true;
             }
@@ -200,7 +202,7 @@ public class KeyboardSplitter : MonoBehaviour
                     if (keyTable.ContainsKey(a))
                     {
                         Key b = keyTable[a];
-                        playerTable[a].Set(b, keyControl.ReadValueFromState(statePtr) > 0);
+                        playerTable[a].Set(b, keyControl.ReadValueFromState(statePtr) > 0, eventPtr.time);
                     }
 
                 }
