@@ -16,15 +16,23 @@ public class PlayerController : MonoBehaviour
     float curDecFactor;
     Rigidbody2D rb;
     Vector2 moveDir = Vector2.zero;
+
+    public enum PlayerNum { P1, P2, P3, P4 };
+    [Header("Spawn")]
+    public PlayerNum CurNum = PlayerNum.P1;
+    public List<Transform> StartingPoints;
+
+
     [Header("Bomb")]
     public bool ifHasBomb = false;
-
     public float BombPassInterval = 0.5f;
     float timer = 0;
+
     // =================================Input System Related=================================== //
     InputActionAsset controls;
     InputActionMap playerInput;
     InputAction movement;
+
     private void Awake()
     {
         controls = GetComponent<PlayerInput>().actions;
@@ -33,11 +41,26 @@ public class PlayerController : MonoBehaviour
         curMoveForce = RegMoveForce;
         curMaxSpeed = RegMaxSpeed;
         curDecFactor = RegDecelerateFactor;
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-
+        // switch (GameManager.CurPlayerNum)
+        // {
+        //     case 1:
+        //         CurNum = PlayerNum.P2;
+        //         break;
+        //     case 2:
+        //         CurNum = PlayerNum.P3;
+        //         break;
+        //     case 3:
+        //         CurNum = PlayerNum.P4;
+        //         break;
+        //     default:
+        //         CurNum = PlayerNum.P1;
+        //         break;
+        // }
     }
 
     // Update is called once per frame
