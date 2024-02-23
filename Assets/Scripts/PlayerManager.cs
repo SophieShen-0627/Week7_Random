@@ -43,7 +43,12 @@ public class PlayerManager : MonoBehaviour
         GameManager.CurPlayerNum += 1;
         playerInput.gameObject.GetComponent<SpriteRenderer>().color = PlayerColor[PlayerInputs.Count - 1];
 
-        UIColorChange(PlayerColor[PlayerInputs.Count - 1]);
+
+        //UI Color Change
+        if (playerInput.currentControlScheme == "Controller")
+        {
+            GamepadUIColorChange(PlayerColor[PlayerInputs.Count - 1]);
+        }
         if (playerInput.devices[0].name == "Left")
         {
             SetColor(KeyboardLeftUI, PlayerColor[PlayerInputs.Count - 1]);
@@ -54,25 +59,15 @@ public class PlayerManager : MonoBehaviour
         }
 
     }
-    void UIColorChange(Color color)
+    void GamepadUIColorChange(Color color)
     {
-        foreach (PlayerInput player in PlayerInputs)
+        if (canChangeColor(Gamepad1UI, color))
         {
-            if (player.currentControlScheme == "Controller")
-            {
-                if (canChangeColor(Gamepad1UI, color))
-                {
-                    SetColor(Gamepad1UI, color);
-                }
-                else
-                {
-                    SetColor(Gamepad2UI, color);
-                }
-            }
-            else
-            {
-
-            }
+            SetColor(Gamepad1UI, color);
+        }
+        else
+        {
+            SetColor(Gamepad2UI, color);
         }
     }
     bool canChangeColor(List<Image> images, Color color)
