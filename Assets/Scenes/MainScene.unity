@@ -1518,6 +1518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameStart: 0
+  MaxPlayerNum: 4
 --- !u!1 &553852463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,7 +3372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 3
-  m_MaxPlayerCount: -1
+  m_MaxPlayerCount: 5
   m_AllowJoining: 1
   m_JoinBehavior: 1
   m_PlayerJoinedEvent:
@@ -4852,6 +4853,8 @@ MonoBehaviour:
   Gamepad2UI:
   - {fileID: 2054916578}
   - {fileID: 1500780393}
+  RandomRangeMax: 4
+  RandomRangeMin: 0
 --- !u!4 &2096255936
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     public static int CurPlayerNum = 0;
     public static bool GameState = false; //true = start
 
+    [Header("For Debugging")]
     public bool GameStart = false;
+    public int MaxPlayerNum = 4;
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void OnGameStart()
     {
-        if (!GameState && CurPlayerNum >= 3)
+        if (!GameState && CurPlayerNum >= MaxPlayerNum)
         {
             GameStart = true; //Debug用
             GameState = true;
