@@ -85,7 +85,7 @@ public class KeyboardSplitter : MonoBehaviour
 
 
     // Helper class to be a sneaky input pirate and steal actions from PlayerInputManager
-    private class ActionCollection : IInputActionCollection
+    public class ActionCollection : IInputActionCollection
     {
         public InputBinding? bindingMask { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
         public ReadOnlyArray<InputDevice>? devices { get => m_devices; set => m_devices = value; }

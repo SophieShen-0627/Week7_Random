@@ -5,8 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static int CurPlayerNum = 0;
-    public static bool PlayerRightSpawned = false;
-    public static bool PlayerLeftSpawned = false;
 
     private void Awake()
     {

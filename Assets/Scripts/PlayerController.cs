@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,14 +27,16 @@ public class PlayerController : MonoBehaviour
     public bool ifHasBomb = false;
     public float BombPassInterval = 0.5f;
     float timer = 0;
+    [Header("Input")]
+    public int curInputType = 0;
+    // 0 - left keyboard
+    // 1 - right keyboard
+    // 2 - gamepad
 
     // =================================Input System Related=================================== //
     InputActionAsset controls;
     InputActionMap playerInput;
     InputAction movement;
-    InputUser user;
-    Keyboard keyboard;
-
     private void Awake()
     {
         controls = GetComponent<PlayerInput>().actions;
@@ -41,13 +44,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         curMoveForce = RegMoveForce;
         curMaxSpeed = RegMaxSpeed;
-        curDecFactor = RegDecelerateFactor;
 
     }
     // Start is called before the first frame update
     void Start()
     {
         PlayerNumUpdate();
+
     }
 
     // Update is called once per frame

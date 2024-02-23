@@ -4818,9 +4818,26 @@ MonoBehaviour:
   PlayerControlManager: {fileID: 1396425004}
   PlayerColor:
   - {r: 1, g: 0.5424528, b: 0.91258866, a: 1}
-  - {r: 1, g: 0.7916331, b: 0.3820755, a: 1}
+  - {r: 0.3803922, g: 0.9181038, b: 1, a: 1}
   - {r: 0.92047846, g: 0.9433962, b: 0.4227483, a: 1}
   - {r: 0.5923522, g: 0.8773585, b: 0.5835262, a: 1}
+  OriUIColor: {r: 0, g: 0, b: 0, a: 0}
+  KeyboardLeftUI:
+  - {fileID: 285354636}
+  - {fileID: 575111185}
+  - {fileID: 1048064651}
+  - {fileID: 553852465}
+  KeyboardRightUI:
+  - {fileID: 1225656801}
+  - {fileID: 1259668068}
+  - {fileID: 1580114690}
+  - {fileID: 1102536518}
+  Gamepad1UI:
+  - {fileID: 2103802556}
+  - {fileID: 1653669339}
+  Gamepad2UI:
+  - {fileID: 2054916578}
+  - {fileID: 1500780393}
 --- !u!4 &2096255936
 Transform:
   m_ObjectHideFlags: 0
