@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()           //ªªbgm∫√œÒ”–µ„∆Êπ÷
     {
-        /*if (specialevent.InSpecialState && !HasChangedBGM)
+        if (specialevent.InSpecialState && !HasChangedBGM)
         {
             HasChangedBGM = true;
             PlayNewBackgroundMusic(EventBGM);
@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
         {
             HasChangedBGM = false;
             PlayNewBackgroundMusic(NormalBGM);
-        }*/
+        }
     }
 
     public void PlayNewBackgroundMusic(AudioClip newMusic)

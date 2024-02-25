@@ -96,8 +96,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayParticle()
     {
-        if (ReverseMovement == -1)
+        if (ReverseMovement == -1 && !ConfusedParticle.isPlaying)
         {
+            Debug.Log("trigger reverse input particle");
             ConfusedParticle.Play();
         }
         else ConfusedParticle.Stop();
