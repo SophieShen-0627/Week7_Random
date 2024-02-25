@@ -40,7 +40,13 @@ public class PlayerManager : MonoBehaviour
         if (!randomed && GameManager.GameState)
         {
             randomed = true;
-            int rand = Random.Range(RandomRangeMin, RandomRangeMax);
+            int rand = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                rand = Random.Range(RandomRangeMin, RandomRangeMax);
+                if (rand < GameManager.CurPlayerNum) break;
+            }
+
             PlayerInputs[rand].GetComponent<PlayerController>().HasBomb = true;
         }
     }
@@ -62,8 +68,13 @@ public class PlayerManager : MonoBehaviour
             Transform playerParent = playerInput.transform;
             playerParent.position = StartingPoints[PlayerInputs.Count - 1].position;
             GameManager.CurPlayerNum += 1;
-            playerInput.gameObject.GetComponent<SpriteRenderer>().color = PlayerColor[PlayerInputs.Count - 1];
 
+            //playerInput.gameObject.GetComponent<SpriteRenderer>().color = PlayerColor[PlayerInputs.Count - 1];
+            SpriteRenderer[] renderers = playerInput.gameObject.GetComponentsInChildren<SpriteRenderer>();
+            foreach (var renderer in renderers)
+            {
+                renderer.color = PlayerColor[PlayerInputs.Count - 1];
+            }
 
             //UI Color Change
             if (playerInput.currentControlScheme == "Controller")

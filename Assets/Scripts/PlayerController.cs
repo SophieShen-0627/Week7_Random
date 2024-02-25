@@ -8,14 +8,19 @@ using UnityEngine.InputSystem.Users;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
+    public int ReverseMovement = 1;        //-1: reverse
     public float RegMoveForce = 3;
     public float BombMoveForce = 5;
-    float curMoveForce = 3;
+
+    // super speed event will control curMoveForce, RegMaxSpeed and BombMaxSpeed
+    public float curMoveForce = 3;
     public float RegMaxSpeed = 8;
     public float BombMaxSpeed = 10;
+    
     float curMaxSpeed = 8;
     public float RegDecelerateFactor = 0.05f;
     public float BombDecelerateFactor = 0.1f;
+    public bool PlayerCanMove = true;
     float curDecFactor;
     Vector2 moveDir = Vector2.zero;
     Rigidbody2D rb;
@@ -35,11 +40,14 @@ public class PlayerController : MonoBehaviour
     public GameObject Bomb;
     float timer = 0;
     GameObject curOther = null;
+    private BombManager bombmanager;
+    private SpecialEvent specialeventtrigger;
 
     // ================================= Input System Related =================================== //
     InputActionAsset controls;
     InputActionMap playerInput;
     InputAction movement;
+
     private void Awake()
     {
         controls = GetComponent<PlayerInput>().actions;
@@ -54,6 +62,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         PlayerNumUpdate();
+        bombmanager = FindObjectOfType<BombManager>();
+        specialeventtrigger = FindObjectOfType<SpecialEvent>();
     }
 
     // Update is called once per frame
@@ -69,11 +79,12 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move();
+        if (PlayerCanMove) Move();
+        else rb.velocity = Vector2.zero;
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveDir = context.ReadValue<Vector2>();
+        moveDir = context.ReadValue<Vector2>() * ReverseMovement;
     }
     void PlayerNumUpdate()
     {
@@ -172,6 +183,9 @@ public class PlayerController : MonoBehaviour
             CanPassBomb = false;
 
             // TODO: Global Counting Down Functions
+            bombmanager.ChangeTimeDisplay();
+            specialeventtrigger.TriggerSpecialEvent();
+
 
         }
     }

@@ -1,0 +1,811 @@
+fileFormatVersion: 2
+guid: 1be3d4e4adeb730498ea1e6ba6e8354c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: OrangeCapsuleBoyRun_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 178
+      width: 14
+      height: 21
+    spriteID: b38b740f0fd9ff74d9b52e85631ccc8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 178}
+  - name: OrangeCapsuleBoyRun_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 207
+      width: 14
+      height: 21
+    spriteID: fda51e8bd075b5342afebd65a7b47e78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 207}
+  - name: OrangeCapsuleBoyRun_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 4
+      width: 16
+      height: 18
+    spriteID: 8f4887cdfff1eac4bbce5728126d1556
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 4}
+  - name: OrangeCapsuleBoyRun_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 56
+      width: 14
+      height: 21
+    spriteID: d35cc55486d72d84ab75aecf0a0ed9d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 56}
+  - name: OrangeCapsuleBoyRun_Frame_4
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 15
+      height: 21
+    spriteID: c38c1acd6fdbe2d41837fdfd737a8036
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: OrangeCapsuleBoyRun_Frame_5
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 33
+      width: 15
+      height: 21
+    spriteID: 68e8ddd7fd523f14aa6538c716190a7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 33}
+  - name: OrangeCapsuleBoyRun_Frame_6
+    originalName: 
+    pivot: {x: 0.47058824, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 4
+      width: 17
+      height: 18
+    spriteID: f5159926dca0b654ab5b48bfaa3c47e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 4}
+  - name: OrangeCapsuleBoyRun_Frame_7
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 62
+      width: 15
+      height: 21
+    spriteID: 8596d1dee5ff59c4087f23cef6ca1d12
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 62}
+  - name: OrangeCapsuleBoyRun_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 85
+      width: 14
+      height: 21
+    spriteID: fe017aa9bc5ba164dbcefb22a27e9f06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 85}
+  - name: OrangeCapsuleBoyRun_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 114
+      width: 14
+      height: 21
+    spriteID: ea62c2454852a78408703165789624bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 114}
+  - name: OrangeCapsuleBoyRun_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 30
+      width: 16
+      height: 18
+    spriteID: ed9dcd065ca4f92488d51a18e98898b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 30}
+  - name: OrangeCapsuleBoyRun_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 143
+      width: 14
+      height: 21
+    spriteID: dbeb86d668d05e84ab7d25e17794f2d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 143}
+  - name: OrangeCapsuleBoyRun_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 172
+      width: 14
+      height: 21
+    spriteID: 81cbb859a08a1c946b2f9dbee3f28e28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 172}
+  - name: OrangeCapsuleBoyRun_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 201
+      width: 14
+      height: 21
+    spriteID: 8d26008e7f6f16749b1498eb9cfb48ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 201}
+  - name: OrangeCapsuleBoyRun_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 56
+      width: 16
+      height: 18
+    spriteID: 3d9a264c62f8dbe4abcb9995098d408b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 56}
+  - name: OrangeCapsuleBoyRun_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 230
+      width: 14
+      height: 21
+    spriteID: 9450d4539a2a9c24e95461497e4c7e33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 230}
+  - name: OrangeCapsuleBoyRun_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 4
+      width: 14
+      height: 21
+    spriteID: bdfb427d0e0964042bd1bea3df98f742
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 4}
+  - name: OrangeCapsuleBoyRun_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 33
+      width: 14
+      height: 21
+    spriteID: 26f4645fd56ddec4d973d089fef401b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 33}
+  - name: OrangeCapsuleBoyRun_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 82
+      width: 16
+      height: 18
+    spriteID: dd9aab8e36d39584aa7fa7eca829ac0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 82}
+  - name: OrangeCapsuleBoyRun_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 62
+      width: 14
+      height: 21
+    spriteID: 6610039209cead44485a12465d81c1a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 62}
+  - name: OrangeCapsuleBoyRun_Frame_20
+    originalName: 
+    pivot: {x: 0.53333336, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 91
+      width: 15
+      height: 21
+    spriteID: 4e9c6231dfe34e140a582ad1478cf5b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 91}
+  - name: OrangeCapsuleBoyRun_Frame_21
+    originalName: 
+    pivot: {x: 0.53333336, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 120
+      width: 15
+      height: 21
+    spriteID: 1e2bd7fc11abe70469adcd8306ee88d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 120}
+  - name: OrangeCapsuleBoyRun_Frame_22
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 30
+      width: 17
+      height: 18
+    spriteID: fe01cb825d830bc4a85ddc4dd0064428
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 30}
+  - name: OrangeCapsuleBoyRun_Frame_23
+    originalName: 
+    pivot: {x: 0.53333336, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 149
+      width: 15
+      height: 21
+    spriteID: 36e2b742e70c0ef4ebd7569be201366b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 149}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 2107294616
+    name: OrangeCapsuleBoyRun
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: OrangeCapsuleBoyRun_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 9
+        y: 6
+        width: 14
+        height: 21
+      spriteId: b38b740f0fd9ff74d9b52e85631ccc8c
+    - name: OrangeCapsuleBoyRun_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: fda51e8bd075b5342afebd65a7b47e78
+    - name: OrangeCapsuleBoyRun_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 8
+        y: 4
+        width: 16
+        height: 18
+      spriteId: 8f4887cdfff1eac4bbce5728126d1556
+    - name: OrangeCapsuleBoyRun_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: d35cc55486d72d84ab75aecf0a0ed9d2
+    - name: OrangeCapsuleBoyRun_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 9
+        y: 6
+        width: 15
+        height: 21
+      spriteId: c38c1acd6fdbe2d41837fdfd737a8036
+    - name: OrangeCapsuleBoyRun_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 9
+        y: 4
+        width: 15
+        height: 21
+      spriteId: 68e8ddd7fd523f14aa6538c716190a7a
+    - name: OrangeCapsuleBoyRun_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 8
+        y: 4
+        width: 17
+        height: 18
+      spriteId: f5159926dca0b654ab5b48bfaa3c47e2
+    - name: OrangeCapsuleBoyRun_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 9
+        y: 4
+        width: 15
+        height: 21
+      spriteId: 8596d1dee5ff59c4087f23cef6ca1d12
+    - name: OrangeCapsuleBoyRun_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 9
+        y: 6
+        width: 14
+        height: 21
+      spriteId: fe017aa9bc5ba164dbcefb22a27e9f06
+    - name: OrangeCapsuleBoyRun_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: ea62c2454852a78408703165789624bc
+    - name: OrangeCapsuleBoyRun_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 8
+        y: 4
+        width: 16
+        height: 18
+      spriteId: ed9dcd065ca4f92488d51a18e98898b2
+    - name: OrangeCapsuleBoyRun_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: dbeb86d668d05e84ab7d25e17794f2d7
+    - name: OrangeCapsuleBoyRun_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 9
+        y: 6
+        width: 14
+        height: 21
+      spriteId: 81cbb859a08a1c946b2f9dbee3f28e28
+    - name: OrangeCapsuleBoyRun_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: 8d26008e7f6f16749b1498eb9cfb48ad
+    - name: OrangeCapsuleBoyRun_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 8
+        y: 4
+        width: 16
+        height: 18
+      spriteId: 3d9a264c62f8dbe4abcb9995098d408b
+    - name: OrangeCapsuleBoyRun_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: 9450d4539a2a9c24e95461497e4c7e33
+    - name: OrangeCapsuleBoyRun_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 9
+        y: 6
+        width: 14
+        height: 21
+      spriteId: bdfb427d0e0964042bd1bea3df98f742
+    - name: OrangeCapsuleBoyRun_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: 26f4645fd56ddec4d973d089fef401b9
+    - name: OrangeCapsuleBoyRun_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 8
+        y: 4
+        width: 16
+        height: 18
+      spriteId: dd9aab8e36d39584aa7fa7eca829ac0c
+    - name: OrangeCapsuleBoyRun_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 9
+        y: 4
+        width: 14
+        height: 21
+      spriteId: 6610039209cead44485a12465d81c1a0
+    - name: OrangeCapsuleBoyRun_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 8
+        y: 6
+        width: 15
+        height: 21
+      spriteId: 4e9c6231dfe34e140a582ad1478cf5b6
+    - name: OrangeCapsuleBoyRun_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 8
+        y: 4
+        width: 15
+        height: 21
+      spriteId: 1e2bd7fc11abe70469adcd8306ee88d1
+    - name: OrangeCapsuleBoyRun_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 7
+        y: 4
+        width: 17
+        height: 18
+      spriteId: fe01cb825d830bc4a85ddc4dd0064428
+    - name: OrangeCapsuleBoyRun_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 8
+        y: 4
+        width: 15
+        height: 21
+      spriteId: 36e2b742e70c0ef4ebd7569be201366b
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}
