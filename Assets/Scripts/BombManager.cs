@@ -20,9 +20,7 @@ public class BombManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        players = FindObjectsOfType<PlayerController>();
-
+    { 
         InitialTime = Random.Range(30.0f, 35f);
         TimeText.color = InitialColor;
         TimeText.text = (Mathf.FloorToInt(InitialTime) + 1).ToString();
@@ -35,7 +33,8 @@ public class BombManager : MonoBehaviour
         RemainTime -= Time.deltaTime;
 
         if (RemainTime <= 0 && !HasExplodeBomb)
-        {    
+        {
+            players = FindObjectsOfType<PlayerController>();
             foreach (var player in players)
             {
                 player.PlayerCanMove = false;
@@ -62,7 +61,7 @@ public class BombManager : MonoBehaviour
 
     void ExplodeBomb(Transform Pos)
     {
-
+        GetComponent<AudioSource>().PlayOneShot(AudioManager.instance.BombExplosion);
         float left = GetPointHorizontal(Vector2.left, Pos);
         float right = GetPointHorizontal(Vector2.right, Pos);
         float up = GetPointVertical(Vector2.up, Pos);

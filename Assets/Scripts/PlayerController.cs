@@ -9,10 +9,10 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public int ReverseMovement = 1;        //-1: reverse
+
+    // super speed event will control RegMoveFOrce, BombMoveForce, RegMaxSpeed and BombMaxSpeed
     public float RegMoveForce = 3;
     public float BombMoveForce = 5;
-
-    // super speed event will control curMoveForce, RegMaxSpeed and BombMaxSpeed
     public float curMoveForce = 3;
     public float RegMaxSpeed = 8;
     public float BombMaxSpeed = 10;
@@ -38,6 +38,13 @@ public class PlayerController : MonoBehaviour
     public float BombPassInterval = 0.5f;
 
     public GameObject Bomb;
+
+    [Header("StateParticle")]
+    [SerializeField] ParticleSystem ConfusedParticle;
+    [SerializeField] GameObject SpeedUp;
+    [SerializeField] ParticleSystem HoldBumb;
+
+
     float timer = 0;
     GameObject curOther = null;
     private BombManager bombmanager;
@@ -56,6 +63,8 @@ public class PlayerController : MonoBehaviour
         playerInput = controls.FindActionMap("Player Input");
         curMoveForce = RegMoveForce;
         curMaxSpeed = RegMaxSpeed;
+
+        SpeedUp.SetActive(false);
 
     }
     // Start is called before the first frame update
@@ -76,16 +85,35 @@ public class PlayerController : MonoBehaviour
             ContactWithOthers();
             BombReceiveCooldown();
         }
+
+        PlayParticle();
     }
     private void FixedUpdate()
     {
         if (PlayerCanMove) Move();
         else rb.velocity = Vector2.zero;
     }
+
+    private void PlayParticle()
+    {
+        if (ReverseMovement == -1)
+        {
+            ConfusedParticle.Play();
+        }
+        else ConfusedParticle.Stop();
+
+        if (rb.velocity.magnitude >= 10) SpeedUp.SetActive(true);
+        else SpeedUp.SetActive(false);
+
+        if (HasBomb) HoldBumb.Play();
+        else HoldBumb.Stop();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveDir = context.ReadValue<Vector2>() * ReverseMovement;
     }
+
     void PlayerNumUpdate()
     {
         switch (GameManager.CurPlayerNum)
