@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip PassBomb;
     public AudioClip BombExplosion;
     public AudioClip TriggerEvent;
+    public AudioClip WinSound;
 
     SpecialEvent specialevent;
     AudioSource audioSource;
@@ -34,6 +35,11 @@ public class AudioManager : MonoBehaviour
         {
             HasChangedBGM = false;
             PlayNewBackgroundMusic(NormalBGM);
+        }
+
+        if (FindObjectOfType<BombManager>().BombHasExplode)
+        {
+            GetComponent<AudioSource>().volume = 0.3f;
         }
     }
 

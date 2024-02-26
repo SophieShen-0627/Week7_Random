@@ -2390,6 +2390,7 @@ MonoBehaviour:
   PassBomb: {fileID: 8300000, guid: e9855cb70de28554d945173e585184ac, type: 3}
   BombExplosion: {fileID: 8300000, guid: fe91a6df2c58ab04baf43329e7cdb380, type: 3}
   TriggerEvent: {fileID: 8300000, guid: 615ab367211569443b585eef25d3dd37, type: 3}
+  WinSound: {fileID: 8300000, guid: 47254b27fa881fe4abae2826eb48d277, type: 3}
 --- !u!1 &755268010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeText: {fileID: 1682899664}
+  BombHasExplode: 0
   FloorLayer:
     serializedVersion: 2
     m_Bits: 64

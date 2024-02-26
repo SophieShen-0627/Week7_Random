@@ -7,6 +7,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 public class PlayerController : MonoBehaviour
 {
+    [Header("PlayerState")]
+    public int PlayerLifeState = 0;        //0:playing; 1:lose; 2: win
+    [SerializeField] ParticleSystem PlayerExplodeParticle;
+    [SerializeField] GameObject Confetti;
+
     [Header("Movement")]
     public int ReverseMovement = 1;        //-1: reverse
 
@@ -87,6 +92,32 @@ public class PlayerController : MonoBehaviour
         }
 
         PlayParticle();
+
+        if (PlayerLifeState == 1)
+        {
+            PlayerLifeState = 3;
+            Debug.Log("player dead");
+
+            PlayerExplodeParticle.Play();
+            PlayerExplodeParticle.transform.parent = null;
+
+
+            gameObject.SetActive(false);
+        }
+
+        if (PlayerLifeState == 2)
+        {
+            PlayerLifeState = 3;
+            StartCoroutine(ConfettiDelay());
+        }
+    }
+
+    IEnumerator ConfettiDelay()
+    {
+        yield return new WaitForSeconds(0.6f);
+
+        Confetti.SetActive(true);
+        GetComponent<AudioSource>().PlayOneShot(AudioManager.instance.WinSound);
     }
     private void FixedUpdate()
     {
@@ -98,13 +129,11 @@ public class PlayerController : MonoBehaviour
     {
         if (ReverseMovement == -1 && !ConfusedParticle.isPlaying)
         {
-            Debug.Log("trigger reverse input particle");
             ConfusedParticle.Play();
         }
         else
         {
             ConfusedParticle.Stop();
-            Debug.Log("Stopped Played");
         }
 
         if (rb.velocity.magnitude >= 10) SpeedUp.SetActive(true);

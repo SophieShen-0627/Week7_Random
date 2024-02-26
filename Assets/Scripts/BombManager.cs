@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class BombManager : MonoBehaviour
 {
     public TMP_Text TimeText;
+    public bool BombHasExplode = false;
     [SerializeField] LayerMask FloorLayer;
     [SerializeField] Color InitialColor = Color.white;
     [SerializeField] Color EndColor = Color.red;
@@ -23,7 +24,7 @@ public class BombManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        InitialTime = Random.Range(30.0f, 35f);
+        InitialTime = Random.Range(3.0f, 5f);
         RemainTime = InitialTime;
         gamemanager = FindObjectOfType<GameManager>();
     }
@@ -53,6 +54,7 @@ public class BombManager : MonoBehaviour
                 if (player.HasBomb)
                 {
                     ExplodeBomb(player.transform);
+                    PlayerExplodeCount(player);
                     HasExplodeBomb = true;
                     break;
                 }
@@ -60,6 +62,17 @@ public class BombManager : MonoBehaviour
         }
     }
 
+    void PlayerExplodeCount(PlayerController player)
+    {
+        foreach (var m_player in players)
+        {
+            if (Mathf.Abs(m_player.transform.position.x - player.transform.position.x) <= 0.5f || Mathf.Abs(m_player.transform.position.y - player.transform.position.y) <= 0.5f)
+            {
+                m_player.PlayerLifeState = 1;
+            }
+            else m_player.PlayerLifeState = 2;
+        }
+    }
 
     public void ChangeTimeDisplay()
     {
@@ -72,6 +85,7 @@ public class BombManager : MonoBehaviour
 
     void ExplodeBomb(Transform Pos)
     {
+        BombHasExplode = true;
         GetComponent<AudioSource>().PlayOneShot(AudioManager.instance.BombExplosion);
         float left = GetPointHorizontal(Vector2.left, Pos);
         float right = GetPointHorizontal(Vector2.right, Pos);
