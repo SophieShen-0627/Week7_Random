@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float curMoveForce = 3;
     public float RegMaxSpeed = 8;
     public float BombMaxSpeed = 10;
-    
+
     float curMaxSpeed = 8;
     public float RegDecelerateFactor = 0.05f;
     public float BombDecelerateFactor = 0.1f;
@@ -101,7 +101,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("trigger reverse input particle");
             ConfusedParticle.Play();
         }
-        else ConfusedParticle.Stop();
+        else
+        {
+            ConfusedParticle.Stop();
+            Debug.Log("Stopped Played");
+        }
 
         if (rb.velocity.magnitude >= 10) SpeedUp.SetActive(true);
         else SpeedUp.SetActive(false);
