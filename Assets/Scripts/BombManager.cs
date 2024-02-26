@@ -17,20 +17,31 @@ public class BombManager : MonoBehaviour
     private float InitialTime = 40;
     private float RemainTime = 0;
     private bool HasExplodeBomb = false;
+    private GameManager gamemanager;
+    private bool StartGame = false;
 
     // Start is called before the first frame update
     void Start()
     { 
         InitialTime = Random.Range(30.0f, 35f);
-        TimeText.color = InitialColor;
-        TimeText.text = (Mathf.FloorToInt(InitialTime) + 1).ToString();
         RemainTime = InitialTime;
+        gamemanager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RemainTime -= Time.deltaTime;
+        if (gamemanager.GameStart && !StartGame)
+        {
+            StartGame = true;
+            TimeText.color = InitialColor;
+            TimeText.text = (Mathf.FloorToInt(InitialTime) + 1).ToString();
+        }
+
+        if (StartGame)
+        {
+            RemainTime -= Time.deltaTime;
+        }
 
         if (RemainTime <= 0 && !HasExplodeBomb)
         {
