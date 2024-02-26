@@ -8,7 +8,9 @@ public class SpecialEvent : MonoBehaviour
     [SerializeField] int TimeForEachEvent = 5;
     [SerializeField] PlayerController[] players;
     public bool InSpecialState = false;
+    private int LastCase = 0;
 
+    private bool LastEventHasFinished = true;
     private float timer = 0;   // for specialstate time count
 
     [Header("Event1: mask")]
@@ -30,11 +32,13 @@ public class SpecialEvent : MonoBehaviour
         if (InSpecialState)
         {
             timer += Time.deltaTime;
+            LastEventHasFinished = false;
         }
 
         if (timer >= 5)
         {
             InSpecialState = false;
+            LastEventHasFinished = true;
         }
     }
 
@@ -49,6 +53,7 @@ public class SpecialEvent : MonoBehaviour
 
         //用于替换主题曲
         InSpecialState = true;
+        if (timer < 5) LastEventHasFinished = false;
         timer = 0;
         GetComponent<AudioSource>().PlayOneShot(AudioManager.instance.TriggerEvent);
 
@@ -67,26 +72,30 @@ public class SpecialEvent : MonoBehaviour
         SuperSpeed(false);
 
         int caseSwitch = Random.Range(0, 3);
+        if (caseSwitch == LastCase)
+        {
+            caseSwitch = Random.Range(0, 3);
+        }
+        LastCase = caseSwitch;
 
-
-        switch(caseSwitch)
+        switch (caseSwitch)
         {
             case 0:
                 DoMaskEvent(true);
                 yield return new WaitForSeconds(TimeForEachEvent);
-                DoMaskEvent(false);
+                if (LastEventHasFinished) DoMaskEvent(false);
                 break;
 
             case 1:
                 ReverseInput(true);
                 yield return new WaitForSeconds(TimeForEachEvent);
-                ReverseInput(false);
+                if(LastEventHasFinished) ReverseInput(false);
                 break;
 
             case 2:
                 SuperSpeed(true);
                 yield return new WaitForSeconds(TimeForEachEvent);
-                SuperSpeed(false);
+                if(LastEventHasFinished) SuperSpeed(false);
                 break;
         }
     }
