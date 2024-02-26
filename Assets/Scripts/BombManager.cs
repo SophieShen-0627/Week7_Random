@@ -24,7 +24,7 @@ public class BombManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        InitialTime = Random.Range(3.0f, 5f);
+        InitialTime = Random.Range(30.0f, 35f);
         RemainTime = InitialTime;
         gamemanager = FindObjectOfType<GameManager>();
     }
