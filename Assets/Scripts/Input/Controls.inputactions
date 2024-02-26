@@ -15,9 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "RestartGame",
+                    "name": "Restart",
                     "type": "Button",
-                    "id": "3a191133-abd5-49e4-abf4-687c50ed5fc4",
+                    "id": "1392f4b1-48af-4b6d-adfd-29ccb2fe2e11",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -148,23 +148,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8030800d-5d93-4a8a-9dac-75ccd3a80999",
+                    "id": "bfacc72a-ccc4-4253-89bc-634929b8d087",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "RestartGame",
+                    "groups": "Controller",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "96d6dac5-1b04-433c-9431-e5ac7bdb90a7",
+                    "id": "84ee80af-25e8-444f-bbeb-267044e4fc13",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "RestartGame",
+                    "groups": "KeyboardLeft;KeyboardRight",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

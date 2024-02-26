@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [Header("PlayerState")]
@@ -59,6 +60,8 @@ public class PlayerController : MonoBehaviour
     InputActionAsset controls;
     InputActionMap playerInput;
     InputAction movement;
+    InputAction restart;
+    bool ifRestart;
 
     private void Awake()
     {
@@ -110,6 +113,7 @@ public class PlayerController : MonoBehaviour
             PlayerLifeState = 3;
             StartCoroutine(ConfettiDelay());
         }
+
     }
 
     IEnumerator ConfettiDelay()
@@ -147,7 +151,11 @@ public class PlayerController : MonoBehaviour
     {
         moveDir = context.ReadValue<Vector2>() * ReverseMovement;
     }
+    public void RestartScene(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene(0);
 
+    }
     void PlayerNumUpdate()
     {
         switch (GameManager.CurPlayerNum)
@@ -266,10 +274,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         movement = playerInput.FindAction("Movement");
+        playerInput.FindAction("Restart").started += RestartScene;
         playerInput.Enable();
     }
     private void OnDisable()
     {
+        playerInput.FindAction("Restart").started -= RestartScene;
+
         playerInput.Disable();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -308,40 +319,4 @@ public class PlayerController : MonoBehaviour
             contact = false;
         }
     }
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         if (curOther == null)
-    //         {
-    //             curOther = other.gameObject;
-    //         }
-    //         if (curOther != null && curOther == other.gameObject)
-    //         {
-    //             contact = true;
-    //         }
-    //     }
-    // }
-    // private void OnCollisionStay(Collision other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         if (curOther == null)
-    //         {
-    //             curOther = other.gameObject;
-    //         }
-    //         if (curOther != null && curOther == other.gameObject)
-    //         {
-    //             contact = true;
-    //         }
-    //     }
-    // }
-    // private void OnCollisionExit2D(Collision2D other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         curOther = null;
-    //         contact = false;
-    //     }
-    // }
 }

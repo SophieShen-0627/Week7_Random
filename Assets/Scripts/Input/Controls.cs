@@ -37,9 +37,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""RestartGame"",
+                    ""name"": ""Restart"",
                     ""type"": ""Button"",
-                    ""id"": ""3a191133-abd5-49e4-abf4-687c50ed5fc4"",
+                    ""id"": ""1392f4b1-48af-4b6d-adfd-29ccb2fe2e11"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -170,23 +170,23 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8030800d-5d93-4a8a-9dac-75ccd3a80999"",
+                    ""id"": ""bfacc72a-ccc4-4253-89bc-634929b8d087"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RestartGame"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""96d6dac5-1b04-433c-9431-e5ac7bdb90a7"",
+                    ""id"": ""84ee80af-25e8-444f-bbeb-267044e4fc13"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RestartGame"",
+                    ""groups"": ""KeyboardLeft;KeyboardRight"",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -232,7 +232,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Player Input
         m_PlayerInput = asset.FindActionMap("Player Input", throwIfNotFound: true);
         m_PlayerInput_Movement = m_PlayerInput.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerInput_RestartGame = m_PlayerInput.FindAction("RestartGame", throwIfNotFound: true);
+        m_PlayerInput_Restart = m_PlayerInput.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,13 +295,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerInput;
     private List<IPlayerInputActions> m_PlayerInputActionsCallbackInterfaces = new List<IPlayerInputActions>();
     private readonly InputAction m_PlayerInput_Movement;
-    private readonly InputAction m_PlayerInput_RestartGame;
+    private readonly InputAction m_PlayerInput_Restart;
     public struct PlayerInputActions
     {
         private @Controls m_Wrapper;
         public PlayerInputActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerInput_Movement;
-        public InputAction @RestartGame => m_Wrapper.m_PlayerInput_RestartGame;
+        public InputAction @Restart => m_Wrapper.m_PlayerInput_Restart;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -314,9 +314,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @RestartGame.started += instance.OnRestartGame;
-            @RestartGame.performed += instance.OnRestartGame;
-            @RestartGame.canceled += instance.OnRestartGame;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -324,9 +324,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @RestartGame.started -= instance.OnRestartGame;
-            @RestartGame.performed -= instance.OnRestartGame;
-            @RestartGame.canceled -= instance.OnRestartGame;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -374,6 +374,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public interface IPlayerInputActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnRestartGame(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
