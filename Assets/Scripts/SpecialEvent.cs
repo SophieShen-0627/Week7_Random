@@ -124,11 +124,12 @@ public class SpecialEvent : MonoBehaviour
         {
             foreach (var player in players)
             {
-                if (!player.HasBomb)
+                player.ReverseMovement = -1;
+                /*if (!player.HasBomb)
                 {
                     player.ReverseMovement = -1;
                 }
-                else player.ReverseMovement = 1;
+                else player.ReverseMovement = 1;*/
             }
         }
 
