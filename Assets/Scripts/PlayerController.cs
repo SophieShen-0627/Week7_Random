@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public bool CanPassBomb = true;
     bool contact = false;
     public float BombPassInterval = 0.5f;
+    public float BouncingForce = 20;
 
     public GameObject Bomb;
 
@@ -237,6 +238,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!Bomb.activeSelf)
                 Bomb.SetActive(true);
+
         }
         else
         {
@@ -256,7 +258,9 @@ public class PlayerController : MonoBehaviour
             bombmanager.ChangeTimeDisplay();
             specialeventtrigger.TriggerSpecialEvent();
 
-
+            Vector2 forceDir = (transform.position - curOther.transform.position).normalized * BouncingForce;
+            curOther.GetComponent<Rigidbody2D>().AddForce(-forceDir, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(forceDir, ForceMode2D.Impulse);
         }
     }
     void BombReceiveCooldown()

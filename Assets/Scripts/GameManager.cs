@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text timertext;
     [SerializeField] GameObject UIwords;
 
-    private float timer = 5;
+    private float timer = 3;
 
     private void Awake()
     {
@@ -32,31 +32,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
         OnGameStart();
     }
 
     void OnGameStart()
     {
-        if (timer > 0)
-        {
-            timertext.text = (Mathf.FloorToInt(timer) + 1).ToString();
-        }
-
         if (!GameState && CurPlayerNum >= MaxPlayerNum)
         {
-            GameStart = true; //Debug用
-            GameState = true;
+            timer -= Time.deltaTime;
+            if (timer > 0)
+            {
+                timertext.text = (Mathf.FloorToInt(timer) + 1).ToString();
+            }
+            if (timer <= 0)
+            {
+                GameStart = true; //Debug用
+                GameState = true;
+                UIwords.SetActive(false);
+            }
+
         }
 
-        //测试用，只要过了5s且玩家数量大于2游戏就会开始
-        if (!GameState && CurPlayerNum >= 2 && timer <= 0)
-        {
-            UIwords.SetActive(false);
-            GameStart = true; //Debug用
-            GameState = true;
-
-        }
     }
 
 

@@ -249,7 +249,8 @@ MonoBehaviour:
   CurNum: 0
   HasBomb: 0
   CanPassBomb: 1
-  BombPassInterval: 2
+  BombPassInterval: 0.5
+  BouncingForce: 12
   Bomb: {fileID: 3393898873982421508}
   ConfusedParticle: {fileID: 6911944212560913074}
   SpeedUp: {fileID: 3676056905493231894}
@@ -288,7 +289,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.65
 --- !u!82 &8726852944719818273
 AudioSource:
   m_ObjectHideFlags: 0
