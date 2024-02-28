@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [Header("PlayerState")]
@@ -43,6 +44,13 @@ public class PlayerController : MonoBehaviour
     bool contact = false;
     public float BombPassInterval = 0.5f;
     public float BouncingForce = 20;
+
+    // ================================= Seperate time count =================================== //
+    public float TotalTime = 10f;
+    private TMP_Text Timer_Int;
+    private TMP_Text Timer_Float;
+    [SerializeField] Color InitialColor = Color.white;
+    [SerializeField] Color EndColor = Color.red;
 
     public GameObject Bomb;
 
@@ -93,6 +101,9 @@ public class PlayerController : MonoBehaviour
             BombPass();
             ContactWithOthers();
             BombReceiveCooldown();
+
+            //==================for seperate time count================================================================
+            if (HasBomb) CountDownTime();
         }
 
         PlayParticle();
@@ -117,6 +128,31 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //=================================for seperate time count =======================================
+    private void CountDownTime()
+    {
+        TotalTime -= Time.deltaTime;
+
+        Timer_Int.text = (Mathf.FloorToInt(TotalTime)).ToString();
+        Timer_Float.text = Mathf.FloorToInt( ((TotalTime - Mathf.FloorToInt(TotalTime)) * 100)). ToString();
+
+        if (TotalTime <= 0)
+        {
+            if (FindObjectOfType<BombManager>().DoExplosion == false)
+                FindObjectOfType<BombManager>().DoExplosion = true;
+        }
+
+        if (TotalTime <= 5)
+        {
+            Timer_Int.color = EndColor;
+            Timer_Float.color = EndColor;
+        }
+        else
+        {
+            Timer_Int.color = InitialColor;
+            Timer_Float.color = InitialColor;
+        }
+    }
     IEnumerator ConfettiDelay()
     {
         yield return new WaitForSeconds(0.6f);
@@ -280,6 +316,10 @@ public class PlayerController : MonoBehaviour
         movement = playerInput.FindAction("Movement");
         playerInput.FindAction("Restart").started += RestartScene;
         playerInput.Enable();
+
+        //========================================for seperate time count ================================================//
+        Timer_Float = GameObject.FindGameObjectWithTag("Time_float").GetComponent<TMP_Text>();
+        Timer_Int = GameObject.FindGameObjectWithTag("Time").GetComponent<TMP_Text>();
     }
     private void OnDisable()
     {

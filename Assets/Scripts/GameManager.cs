@@ -53,6 +53,14 @@ public class GameManager : MonoBehaviour
 
         }
 
+        /*if (CurPlayerNum >= 2)
+        {
+            GameStart = true; //Debug用
+            GameState = true;
+            UIwords.SetActive(false);
+
+        }*/
+
     }
 
 

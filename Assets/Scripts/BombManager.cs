@@ -8,6 +8,7 @@ public class BombManager : MonoBehaviour
 {
     public TMP_Text TimeText;
     public bool BombHasExplode = false;
+    public bool DoExplosion = false;
     [SerializeField] LayerMask FloorLayer;
     [SerializeField] Color InitialColor = Color.white;
     [SerializeField] Color EndColor = Color.red;
@@ -32,7 +33,7 @@ public class BombManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gamemanager.GameStart && !StartGame)
+        /*if (gamemanager.GameStart && !StartGame)
         {
             StartGame = true;
             TimeText.color = InitialColor;
@@ -42,9 +43,10 @@ public class BombManager : MonoBehaviour
         if (StartGame)
         {
             RemainTime -= Time.deltaTime;
-        }
+        }*/
 
-        if (RemainTime <= 0 && !HasExplodeBomb)
+        //if (RemainTime <= 0 && !HasExplodeBomb)
+        if (DoExplosion && !HasExplodeBomb)
         {
             players = FindObjectsOfType<PlayerController>();
             foreach (var player in players)

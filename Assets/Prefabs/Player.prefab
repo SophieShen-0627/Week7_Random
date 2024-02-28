@@ -251,6 +251,9 @@ MonoBehaviour:
   CanPassBomb: 1
   BombPassInterval: 0.5
   BouncingForce: 12
+  TotalTime: 10
+  InitialColor: {r: 0.9254902, g: 0.9254902, b: 0.9254902, a: 1}
+  EndColor: {r: 0.9150943, g: 0.4963955, b: 0.4963955, a: 1}
   Bomb: {fileID: 3393898873982421508}
   ConfusedParticle: {fileID: 6911944212560913074}
   SpeedUp: {fileID: 3676056905493231894}
